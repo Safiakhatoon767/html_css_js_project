@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Mother's Day!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f8e1d4;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        .container {
+            background: #ffb7c5;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .message h1 {
+            color: #fff;
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .message p {
+            color: #fff;
+            font-size: 18px;
+        }
+
+        .photo img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin-top: 20px;
+            object-fit: cover;
+            display: none;
+        }
+
+        input[type="file"] {
+            padding: 10px;
+            background-color: #ff80a9;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type="file"]:hover {
+            background-color: #ff66a1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="message">
+            <h1>Happy Mother's Day!</h1>
+            <p>You are the best, Mom! 💖</p>
+        </div>
+        <div class="photo">
+            <input type="file" id="photoUpload" onchange="loadPhoto(event)" />
+            <img id="momPhoto" src="" alt="Your Mom's Photo" />
+        </div>
+    </div>
+
+    <script>
+        function loadPhoto(event) {
+            const photo = document.getElementById('momPhoto');
+            const file = event.target.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function () {
+                    photo.src = reader.result;
+                    photo.style.display = 'block'; // Show the image once loaded
+                }
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
+</body>
+
+</html>
