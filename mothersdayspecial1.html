@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Mother's Day</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: #fff5f7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .message-box {
+            text-align: center;
+            max-width: 80%;
+            padding: 20px;
+            background: #ffcce0;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .message-box h1 {
+            font-size: 28px;
+            color: #d10068;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .circle-container {
+            display: none;
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin-top: 30px;
+            animation: rotate 20s linear infinite;
+        }
+
+        .circle-container img {
+            position: absolute;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="message-box">
+        <h1 id="message">Loading...</h1>
+    </div>
+
+    <div class="circle-container" id="circle">
+        <!-- Maa ki photos yahan ghoomenge -->
+        <img src="https://i.pinimg.com/736x/bb/06/cc/bb06cc6ce86d5921bf159f9305be44be.jpg" style="top: 0; left: 115px;">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_bo8mb5W8WSRA0U1-JdNCMypYaCWV_aKEBQ&s"
+            style="top: 40px; left: 200px;">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9adyDNXbxqQA0G07oxBupdAqkgUYuydxfXg&s"
+            style="top: 115px; left: 230px;">
+        <img src="https://c4.wallpaperflare.com/wallpaper/20/314/393/mother-wallpaper-preview.jpg"
+            style="top: 200px; left: 200px;">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5CPYwkFXrjptfyfQnTVGmVQECl8csL0pA-Zm--oZVtdM5BqgYJMI2vg0KJaNdgk0x6N8&usqp=CAU"
+            style="top: 230px; left: 115px;">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFs6SWfpBcFLH4qIJV1vAzUTk1DNTO2NEECI4iR4wzAwOekojJIZ9oHcI_N0R2k095k9c&usqp=CAU"
+            style="top: 200px; left: 30px;">
+        <img src="https://wallpapercave.com/wp/wp6426469.jpg" style="top: 115px; left: 0;">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXK5QQVnL4YVNvbIPqUavXCo2XFOFfkmi8Cq--8IZ5SLN4ARrU3PdFf0gv0urLHyOZ_yQ&usqp=CAU"
+            style="top: 40px; left: 30px;">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpt83RPZIEyyYXEsSQ2rOht4e8UsuP9BWqW06UkBPfmGT84G-TR0XBK3shh06PbjECbng&usqp=CAU"
+            style="top: 90px; left: 160px;">
+        <img src="https://static.vecteezy.com/system/resources/thumbnails/056/867/442/small/mother-holding-baby-in-a-tranquil-garden-surrounded-by-blooming-flowers-during-golden-hour-photo.jpeg"
+            style="top: 90px; left: 60px;">
+    </div>
+
+    <script>
+        const messages = [
+            "Maa — ek shabd nahi, poori duniya hai.",
+            "Jitna pyar maa karti hai, utna koi nahi kar sakta.",
+            "Maa ki god duniya ki sabse badi sukoon wali jagah hai.",
+            "Jab tak maa ki dua saath hai, kuch nahi bigad sakta.",
+            "Maa bina zindagi adhoori hai.",
+            "Har dard ki dawa hai maa.",
+            "Maa ka pyaar har din special banata hai.",
+            "Maa ka chehra dekh kar din ban jaata hai.",
+            "Thank you Mom, for everything you do!",
+            "Happy Mother's Day! 💖"
+        ];
+
+        let index = 0;
+        const msgEl = document.getElementById("message");
+        const circle = document.getElementById("circle");
+
+        function showMessages() {
+            if (index < messages.length) {
+                msgEl.textContent = messages[index];
+                index++;
+                setTimeout(showMessages, 2000); // next message after 2 sec
+            } else {
+                document.querySelector('.message-box').style.display = 'none';
+                circle.style.display = 'block'; // Show circle of photos
+            }
+        }
+
+        showMessages();
+    </script>
+</body>
+
+</html>
